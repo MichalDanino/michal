@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Define your Allergies and sensitives</title>
+</head>
+<style>
+    #grad1 {
+        height: 18px;
+        background-image: linear-gradient(to top, rgba(0, 102, 255, 0), rgb(0, 110, 255));
+    }
+</style>
+<!-- style="background: rgba(71, 71, 71, 0.5)" -->
+<!-- style="background: linear-gradient(to top, rgba(255,0,0,0), rgb(228, 136, 76))" -->
+
+<body>
+    
+    <br><br><br><br><br><br>
+    <form (submit)="defineAllergies()">
+        <!--  <h1>Here you can define all your allergies. <br> Just select your allergies and they will be considered when you
+            search for a recipe.</h1> <br> -->
+
+        <div class="col-12">
+            <div class="section-title-header text-center">
+                <h1 style="color: white;" class="section-title wow fadeInUp" data-wow-delay="0.2s">My sensitivities</h1>
+                <p style="font-size: 20px; color: white;"  class="wow fadeInDown" data-wow-delay="0.2s">just select your sensitivities and you can exclude them
+                    from your ingredients when searching for a recipe</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-common sub-btn" data-style="zoom-in" data-spinner-size="30"
+                name="submit" id="submit" style="font-family: inherit; border-color: black;">
+                <span class="ladda-label"><i class="fa fa-check" aria-hidden="true"></i>
+                    submit</span>
+            </button>
+            <button (click)="skip()" class="btn btn-common sub-btn" data-style="zoom-in" data-spinner-size="30"
+                style="font-family: inherit; margin-left: 30px; border-color: black;">
+                <span class="ladda-label"> <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    skip</span>
+            </button>
+        </div>
+        <br><br>
+
+        <div style="text-align: center; margin-left: 100px;">
+            <div id="middle" *ngFor="let allergy of allergies; ;let i=index ">
+                <label class="container11" style="font-size: 20px; float: left; margin-top: 5px;">
+                    <input type="checkbox" [checked]="isChecked(allergy.AllergyCode)" [value]="allergies[i].AllergyName"
+                        id={{allergies[i].AllergyName}} (change)="toggleAllergy(allergies[i].AllergyCode)" style="margin-left: 25px;">
+                    {{allergies[i].AllergyName}}
+                    <span class="checkmark"></span>
+                </label>
+               
+            
+            </div>
+        </div>
+
+       
+
+        <!-- <div class="container">
+            <ul *ngFor="let allergy of allergies;let i=index ">
+                <label class="container" style="font-size: 20px;">
+                    {{allergies[i].AllergyName}}
+                    <input type="checkbox" [checked]="isChecked(allergy.AllergyCode)" [value]="allergies[i].AllergyName"
+                        id={{allergies[i].AllergyName}} (change)="toggleAllergy(allergies[i].AllergyCode)">
+                    <span class="checkmark"></span>
+                </label>
+            </ul>
+        </div> -->
+
+    </form>
+   
+   
+</body>
+
+</html>

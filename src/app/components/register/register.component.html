@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+</head>
+<style>
+    #grad1 {
+        height: 18px;
+        background-image: linear-gradient(to top, rgba(0, 102, 255, 0), rgb(0, 110, 255));
+    }
+</style>
+
+<body>
+
+    <!-- 
+    <h2>Registration</h2>
+    <form class="form-horizontal" [formGroup]="userForm" (submit)="addUser()">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="name">Name:</label>
+            <div class="col-sm-10">
+                <input class="form-control" formControlName="name" id="name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Email:</label>
+            <div class="col-sm-10">
+                <input class="form-control" formControlName="email" id="email" />
+    
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="password">Password:</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="password" formControlName="password" id="password" />
+    
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="confirmPassword">Confirm Password:</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="password" formControlName="confirmPassword" id="confirmPassword" />
+            </div>
+        </div>
+        <div>
+            <input id="ac" type="checkbox" formControlName="accept">
+            <label for="ac"> I accept all terms</label>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" [disabled]="!userForm.valid" class="btn btn-success"
+                    style="background-color: #E91E63; border-color: white;">Submit</button>
+            </div>
+        </div>
+    </form>
+    
+     -->
+
+    <br><br><br>
+    <section id="contact-map" class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="section-title-header text-center">
+                        <h1 class="section-title wow fadeInUp" data-wow-delay="0.4s">
+                            Register</h1>
+                        <p style="font-size: 20px;" class="wow fadeInDown" data-wow-delay="0.4s">Stay in, so that
+                            you can search for recipes
+                            without your
+                            sensitivities!</p>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-12 col-xs-12">
+                    <div class="container-form wow fadeInLeft" data-wow-delay="0.4s">
+                        <div class="form-wrapper">
+
+                            <form class="form-horizontal" [formGroup]="userForm" data-toggle="validator"
+                                (submit)="addUser()">
+
+
+                                <div class="row">
+                                    <!--name-->
+                                    <div class="col-md-12 form-line">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="name" formControlName="name"
+                                                name="name" placeholder="First Name" required
+                                                data-error="Please enter your name">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <!--email-->
+                                    <div class="col-md-12 form-line">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="email" formControlName="email"
+                                                placeholder="Email" required data-error="Please enter your Email">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- password -->
+                                    <div class="col-md-12 form-line">
+                                        <div class="form-group">
+                                            <input style="display: inline-block; width: 96%;" id="password-field" [type]="currentStatus1" class="form-control"
+                                                formControlName="password" placeholder="password" required
+                                                data-error="Please enter your password">
+                                            <span [class]="currenttype1" (click)="toggle1()"></span>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- confim password-->
+                                    <div class="col-md-12 form-line">
+                                        <div class="form-group">
+                                            <input style="display: inline-block; width: 96%;" id="confirmPassword" [type]="currentStatus2" class="form-control"
+                                                formControlName="password" placeholder="confirm password" required
+                                                data-error="Please enter your password">
+                                            <span [class]="currenttype2" (click)="toggle2()"></span>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-submit" style="text-align: center;">
+                                        <button type="submit" class="btn btn-common sub-btn" data-style="zoom-in"
+                                            data-spinner-size="30" name="submit" id="submit"
+                                            style="font-family: inherit;">
+                                            <span class="ladda-label"><i class="fa fa-check" aria-hidden="true"></i>
+                                                submit</span>
+                                        </button>
+                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
