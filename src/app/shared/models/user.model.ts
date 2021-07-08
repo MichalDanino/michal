@@ -1,12 +1,8 @@
-export class User {
-    UserId: number
-    FnameUser: string
-    LnameUser: string
-   CityAdderssUser: string
+export class User
+{
+    IDUser: number
+    name: string
+    CityAdderssUser: string
     areaUser: string
-    Email: string
-    
-    
-    
-    
+    EmailUser: string
 }

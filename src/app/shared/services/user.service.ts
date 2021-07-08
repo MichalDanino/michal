@@ -8,21 +8,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-url1 =" https://localhost:44339/api/worker";
-  constructor(private http: HttpClient) { }
+  Url ="https://localhost:44339/api/user"
+  constructor(private https: HttpClient) { }
 
   addUser(user: User): Observable<boolean> {
-   return this.http.post<boolean>(environment.url + 'user/adduser', user)
+   return this.https.post<boolean>(environment.url + 'user/adduser', user)
   }
 
-  getUserExist(user: User) : Observable<number>{
-    debugger
-    return this.http.post<number>(this.url1 + '/singinuser', user.UserId)
+  SignIn(id:number):Observable<number>
+  {
+   return this.https.get<number>(`${this.Url}/singinuser/${id}`)
+  }
+  signUpUser(newUser: User):Observable<number>{
+    console.log(newUser)
+    console.log("service")
+    
+     return this.https.post<number>(`${this.Url}/singupuser`, newUser)
+   }
 
-  }
-  get(ddd : number) : Observable<number>{
-    return this.http.post<number>(this.url1 + '/singinuser', ddd)
-  }
 
   
 }

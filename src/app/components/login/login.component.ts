@@ -41,18 +41,22 @@ export class LoginComponent implements OnInit {
 getUserExist(){
   this.IDUser = this.loginForm.controls.ID.value
   console.log(this.IDUser);
-    this.userService.get(this.IDUser).subscribe(
+    this.userService.SignIn(this.IDUser).subscribe(
       
-      res =>{console.log(res)}) ;
+      res =>{this.loginUser(res)}) ;
    
   }
 
   loginUser(user) {
-    //here it's need to get the id of the current user from the services, and ot use it throw the app
-    const currentUser = user;
-    this.loginService.setCurrentUser(currentUser);
-    console.log(currentUser);
-    this.router.navigate(['/home'])
+    if(user==0)
+      {
+    this.router.navigate(['/register'])
+      }
+    else{
+      sessionStorage.setItem('IDUser',user.toString());
+      this.router.navigate(['/home'])
+    }
+
   }
 
   toggle() {
